@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>文件上传</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery-2.2.0.min.js}"></script>
+</head>
+<body>
+    <div th:class="container">
+        <h2>spring-boot-file-upload</h2><br/>
+        <form role="form" th:class="form-horizontal" method="post" action="/file/upload" enctype="multipart/form-data">
+            <input type="file" name="file" />
+            <br/>
+            <br/>
+            <input type="submit"  value="Submit"/>
+        </form>
+    </div>
+</body>
+</html>
