@@ -1,0 +1,48 @@
+test: 测试配置文件编码
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/sbjt?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+  thymeleaf:
+    cache: false
+#  rabbitmq:
+#    host:
+#    port:
+#    username:
+#    password
+
+#日志
+logging:
+  level:
+    com.example.sbjt: debug
+    org.springframework.web: info
+    org.hibernate: error
+  path: C:\zk_data\uploads\log
+  file:
+    max-size: 5M
+    max-history: 7
+
+#自定义info：
+info:
+  aaa:
+    name: xxx
+    email: xxx@qq.com
+  bbb:
+    age: 25
+    hobbies: running
+  build:
+    artifact: "@project.artifactId@"
+    name: "@project.name@"
+    version: "@project.version@"
+management:
+  security:
+    enabled: false  #取消actuator的安全权限

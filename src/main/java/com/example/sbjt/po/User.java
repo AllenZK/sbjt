@@ -18,6 +18,10 @@ public class User {
     private String password;
     @Column(name = "age")
     private int age;
+    @Column(name = "salt",columnDefinition = " varchar(50) COMMENT '随机值' default '123456' ")
+    private String salt;
+
+
 
     public long getId() {
         return id;
@@ -49,5 +53,13 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 }

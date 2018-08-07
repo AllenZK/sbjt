@@ -1,11 +1,11 @@
 package com.example.sbjt.web.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.example.sbjt.common.annos.Alog;
 import com.example.sbjt.common.beans.StateCode;
 import com.example.sbjt.po.User;
 import com.example.sbjt.service.UserService;
 import com.example.sbjt.web.forms.UserForm;
-import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -65,7 +65,19 @@ public class UserController extends BaseController {
             sc.setMessage("删除失败");
             return sc;
         }
+    }
 
+    @Alog("添加用户json测试")
+    @RequestMapping(value = "/json",method = RequestMethod.POST)
+    @ResponseBody
+    public String json(@RequestBody UserForm userForm,HttpServletRequest request){
+        if (userForm.validate(request)){
+            User user = userForm.excute(request);
+            if (user != null){
+                return JSON.toJSONString(user);
+            }
+        }
+        return "添加用户失败";
     }
 
 }

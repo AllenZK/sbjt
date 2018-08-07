@@ -1,0 +1,5 @@
+spring:
+  profiles:
+    active: dev
+#允许打印debug级别日志
+#debug: true

@@ -76,7 +76,11 @@ public class AlogAspect {
         for (Method method : methods) {
             if (method.getName().equals(methodName)){
                 Alog alog = method.getAnnotation(Alog.class);
-                aLogVo.setA_methodName(alog.value());
+                if(alog != null){
+                    aLogVo.setA_methodName(alog.value());
+                }else {
+                    aLogVo.setA_methodName("该接口没有标注记录");
+                }
             }
         }
     }

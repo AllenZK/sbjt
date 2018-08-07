@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>添加用户</title>
+    <title>添加or编辑用户</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
     <script th:src="@{/js/bootstrap.min.js}"></script>
     <script th:src="@{/js/jquery-2.2.0.min.js}"></script>
@@ -11,23 +11,24 @@
     <div style="width:80%">
         <h3>添加表单</h3>
         <hr/>
-        <form role="form" th:class="form-horizontal" th:method="post" th:action="@{/user/add}"  th:object="${uuu}">
+        <form role="form" th:class="form-horizontal" th:method="post" >
             <div class="form-group">
                 <label class="col-lg-2 control-label">用户名</label>
                 <div class="col-lg-10">
-                    <input class="form-control" type="text"  name="name"  th:value="*{name}" placeholder="姓名" />
+                    <input class="form-control" type="hidden" name="id" th:value="${uuu.id}"/>
+                    <input class="form-control" type="text"  name="name"  th:value="${uuu.name}"  placeholder="姓名" />
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-lg-2 control-label">密码</label>
                 <div class="col-lg-10">
-                    <input class="form-control" type="text" name="password"  th:value="*{password}" placeholder="密码"/>
+                    <input class="form-control" type="text" name="password"  th:value="${uuu.password}" placeholder="密码"/>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-lg-2 control-label">年龄</label>
                 <div class="col-lg-10">
-                    <input class="form-control" type="number" name="age"  th:value="*{age}" placeholder="年龄"/>
+                    <input class="form-control" type="number" name="age"  th:value="${uuu.age}" placeholder="年龄"/>
                 </div>
             </div>
             <div class="form-group">
@@ -41,7 +42,6 @@
     </div>
 </body>
 <script>
-    function init_form() {
-    }
+
 </script>
 </html>
