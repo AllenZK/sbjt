@@ -3,3 +3,4 @@ spring:
     active: dev
 #允许打印debug级别日志
 #debug: true
+#修改了著配置文件在test分支

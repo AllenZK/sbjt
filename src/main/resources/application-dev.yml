@@ -46,3 +46,4 @@ info:
 management:
   security:
     enabled: false  #取消actuator的安全权限
+#在dev配置文件中添加了测试注解
